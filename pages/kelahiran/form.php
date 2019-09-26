@@ -175,7 +175,7 @@ if($datakode){
                           <div class="control-group">
                             <div class="controls">
                               <div class="col-md-6 col-sm-6 col-xs-12" >
-                                <input type="text" name="tgl_kelahiran" class="form-control has-feedback-left" id="single_cal2" aria-describedby="inputSuccess2Status2">
+                              <input type="text" name="tgl_kelahiran" id="from-datepicker"  class="form-control has-feedback-left" id="single_cal2" aria-describedby="inputSuccess2Status2"  >
                                 <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
                                 <span id="inputSuccess2Status2" class="sr-only" id="tgl_kelahiran">(success)</span>
                               </div>

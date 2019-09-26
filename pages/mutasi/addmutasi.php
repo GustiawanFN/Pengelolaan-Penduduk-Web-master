@@ -65,10 +65,11 @@ if($datakode){
                       <div class="form-group">
                         <label for="tgl_mati" class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Mutasi</label>
                        <fieldset>
-                          <div class="control-group">
-                            <div class="controls">
+                          <div class="control-group" >
+                            <div class="controls" >
                               <div class="col-md-6 col-sm-6 col-xs-12" >
-                                <input type="text" name="tanggal_mutasi"  class="form-control has-feedback-left" id="single_cal2" aria-describedby="inputSuccess2Status2">
+                                <input type="text" name="tanggal_mutasi" id="from-datepicker"  class="form-control has-feedback-left" id="single_cal2" aria-describedby="inputSuccess2Status2"  >
+                                
                                 <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
                                 <span id="inputSuccess2Status2" class="sr-only" id="tanggal_mutasi">(success)</span>
                               </div>
@@ -121,6 +122,10 @@ if($datakode){
             </div>
           </div>
         </div>
+
+
+
+
 
 
 
