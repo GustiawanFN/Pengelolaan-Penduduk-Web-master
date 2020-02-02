@@ -24,10 +24,11 @@ $ayah = htmlspecialchars($_POST['ayah']);
 $ibu = htmlspecialchars($_POST['ibu']);
 $status = '1' ;
 $status_cari = '' ;
+$tgl_masuk = date('Y');
 
 // masukkan ke database
 
-$query = "INSERT INTO penduduk (nik, nama, tempat_lahir, tanggal_lahir, dusun, rt, rw, jk, golongan_darah, alamat, status_keluarga, status_perkawinan, pekerjaan,pendidikan, kewarganegaraan, agama, ayah, ibu, status,status_cari) VALUES ('$nik', '$nama',  '$tempat_lahir', '$tanggal_lahir','$dusun', '$rt', '$rw', '$jk', '$golongan_darah', '$alamat', '$status_keluarga', '$status_perkawinan', '$pekerjaan' , '$pendidikan', '$kewarganegaraan', '$agama', '$ayah', '$ibu' , '$status','$status_cari');";
+$query = "INSERT INTO penduduk (nik, nama, tempat_lahir, tanggal_lahir, dusun, rt, rw, jk, golongan_darah, alamat, status_keluarga, status_perkawinan, pekerjaan,pendidikan, kewarganegaraan, agama, ayah, ibu, status,status_cari, tanggal_masuk) VALUES ('$nik', '$nama',  '$tempat_lahir', '$tanggal_lahir','$dusun', '$rt', '$rw', '$jk', '$golongan_darah', '$alamat', '$status_keluarga', '$status_perkawinan', '$pekerjaan' , '$pendidikan', '$kewarganegaraan', '$agama', '$ayah', '$ibu' , '$status','$status_cari','$tgl_masuk');";
 
 $hasil = mysqli_query($db, $query);
 
