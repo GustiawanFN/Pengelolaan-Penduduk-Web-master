@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Sep 2019 pada 18.35
--- Versi server: 10.1.39-MariaDB
--- Versi PHP: 7.3.5
+-- Waktu pembuatan: 02 Feb 2020 pada 18.55
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id_admin` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
-  `password` text,
+  `password` text DEFAULT NULL,
   `akses` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -73,9 +73,9 @@ CREATE TABLE `kematian` (
   `hari` varchar(10) DEFAULT NULL,
   `tgl_mati` varchar(10) DEFAULT NULL,
   `waktu` varchar(10) DEFAULT NULL,
-  `tempat_makam` text,
-  `tempat_meninggal` text,
-  `penyebab` text
+  `tempat_makam` text DEFAULT NULL,
+  `tempat_meninggal` text DEFAULT NULL,
+  `penyebab` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,11 +130,20 @@ INSERT INTO `klasifikasi_kk` (`id_kla`, `no_kk`, `nik`, `statuskk`) VALUES
 CREATE TABLE `mutasi` (
   `id_mutasi` varchar(50) NOT NULL,
   `nik` varchar(100) NOT NULL,
-  `alamat_tujuan` text,
-  `alamat_sebelum` text,
+  `alamat_tujuan` text DEFAULT NULL,
+  `alamat_sebelum` text DEFAULT NULL,
   `tanggal_mutasi` varchar(10) DEFAULT NULL,
   `alasan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `mutasi`
+--
+
+INSERT INTO `mutasi` (`id_mutasi`, `nik`, `alamat_tujuan`, `alamat_sebelum`, `tanggal_mutasi`, `alasan`) VALUES
+('00001', '3232', 'Desa Cipetir', 'ffd', '', 'df'),
+('00002', '32322323', 'Desa Cipetir', 'ffd', '2020-02-09', 'df'),
+('00003', '3232232354', 'Desa Cipetir', 'ffd', '2020-02-09', 'df');
 
 -- --------------------------------------------------------
 
@@ -152,7 +161,7 @@ CREATE TABLE `penduduk` (
   `rw` varchar(3) DEFAULT NULL,
   `jk` varchar(10) DEFAULT NULL,
   `golongan_darah` varchar(5) DEFAULT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `status_keluarga` varchar(50) DEFAULT NULL,
   `status_perkawinan` varchar(20) DEFAULT NULL,
   `pendidikan` varchar(50) DEFAULT NULL,
@@ -162,17 +171,25 @@ CREATE TABLE `penduduk` (
   `ayah` varchar(50) DEFAULT NULL,
   `ibu` varchar(50) DEFAULT NULL,
   `status` varchar(1) DEFAULT NULL,
-  `status_cari` varchar(1) DEFAULT NULL
+  `status_cari` varchar(1) DEFAULT NULL,
+  `tanggal_masuk` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `penduduk`
 --
 
-INSERT INTO `penduduk` (`nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `dusun`, `rt`, `rw`, `jk`, `golongan_darah`, `alamat`, `status_keluarga`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `kewarganegaraan`, `agama`, `ayah`, `ibu`, `status`, `status_cari`) VALUES
-('3208070308820007', 'Toto', 'Kuningan', '03/08/1982', 'Kliwon', '01', '01', 'Laki-laki', '', 'Desa Cipetir', 'KEPALA_KELUARGA', 'KAWIN', 'TAMAT SD/SEDERAJAT', 'WIRASWASTA', 'WNI', 'Islam', 'Suhardi', 'Darni', '1', '1'),
-('3208072103110001', 'Galih Tyo Sandria', 'Kuningan', '03/21/2011', 'Kliwon', '01', '01', 'Laki-laki', '', 'Desa Cipetir', 'ANAK', 'BELUM KAWIN', 'TIDAK / BELUM SEKOLAH', 'BELUM / TIDAK BEKERJA', 'WNI', 'Islam', 'Toto', 'Enah', '1', '1'),
-('3208075301890008', 'Enah', 'Kuningan', '01/13/1989', 'Kliwon', '01', '01', 'Perempuan', '', 'Desa Cipetir', 'ISTRI', 'KAWIN', 'SLTA/SEDERAJAT', 'MENGURUS RUMAH TANGGA', 'WNI', 'Islam', 'Abas', 'Rati', '1', '1');
+INSERT INTO `penduduk` (`nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `dusun`, `rt`, `rw`, `jk`, `golongan_darah`, `alamat`, `status_keluarga`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `kewarganegaraan`, `agama`, `ayah`, `ibu`, `status`, `status_cari`, `tanggal_masuk`) VALUES
+('123444444', 'tesssss', 'sa', '02/02/2020', 'Manis', '3', '2', 'Laki-laki', 'B', 'Desa Cipetir', 'KEPALA_KELUARGA', 'BELUM KAWIN', 'TIDAK / BELUM SEKOLAH', 'BELUM / TIDAK BEKERJA', 'WNI', 'Hindu', 'er', 'qwe', '1', '', '2021'),
+('3208070308820007', 'Toto', 'Kuningan', '03/08/1982', 'Pahing', '01', '01', 'Laki-laki', '', 'Desa Cipetir', 'KEPALA_KELUARGA', 'KAWIN', 'TAMAT SD/SEDERAJAT', 'WIRASWASTA', 'WNI', 'Islam', 'Suhardi', 'Darni', '1', '1', '2021'),
+('3208072103110001', 'Galih Tyo Sandria', 'Kuningan', '03/21/2011', 'Kliwon', '01', '01', 'Laki-laki', '', 'Desa Cipetir', 'ANAK', 'BELUM KAWIN', 'TIDAK / BELUM SEKOLAH', 'BELUM / TIDAK BEKERJA', 'WNI', 'Islam', 'Toto', 'Enah', '3', '1', '2019'),
+('3208075301890008', 'Enah', 'Kuningan', '01/13/1989', 'Kliwon', '01', '01', 'Perempuan', '', 'Desa Cipetir', 'ISTRI', 'KAWIN', 'SLTA/SEDERAJAT', 'MENGURUS RUMAH TANGGA', 'WNI', 'Islam', 'Abas', 'Rati', '1', '1', '2020'),
+('3232', 'tr', 'saas', '02/02/2020', 'Manis', '555', '5', 'Laki-laki', 'A', 'Desa Cipetir', '', 'KAWIN', 'BELUM TAMAT SD/SEDERAJAT', 'MENGURUS RUMAH TANGGA', 'WNI', 'Islam', 'fd', 'df', '1', '', '2018'),
+('32322323', '989', 'saas', '02/02/2020', 'Manis', '555', '5', 'Laki-laki', 'A', 'Desa Cipetir', '', 'KAWIN', 'BELUM TAMAT SD/SEDERAJAT', 'MENGURUS RUMAH TANGGA', 'WNI', 'Islam', 'fd', 'df', '1', '', '2020'),
+('3232232354', '989sdsd', 'saas', '02/02/2020', 'Manis', '555', '5', 'Perempuan', 'A', 'Desa Cipetir', '', 'KAWIN', 'BELUM TAMAT SD/SEDERAJAT', 'MENGURUS RUMAH TANGGA', 'WNI', 'Islam', 'fd', 'df', '2', '', '2020'),
+('324324342', 'd', 'sd', '02/02/2020', 'Manis', '2', '2', 'Perempuan', 'A', 'Desa Cipetir', 'SUAMI', 'BELUM KAWIN', 'BELUM TAMAT SD/SEDERAJAT', 'MENGURUS RUMAH TANGGA', 'WNI', 'Kristen', 'dsf', '2a', '1', '', '2021'),
+('87232', 'as', 'sa', '02/02/2020', 'Pahing', '322', '32', 'Perempuan', 'A', 'Desa Cipetir', 'SUAMI', 'KAWIN', 'DIPLOMA I/II', 'PETERNAK', 'WNI', 'Budha', 'saa', 'as', '1', '', '2019'),
+('878', 'as', 'sa', '02/02/2020', 'Pahing', '322', '32', 'Laki-laki', 'A', 'Desa Cipetir', 'SUAMI', 'KAWIN', 'DIPLOMA I/II', 'PETERNAK', 'WNI', 'Budha', 'saa', 'as', '1', '', '');
 
 --
 -- Indexes for dumped tables
