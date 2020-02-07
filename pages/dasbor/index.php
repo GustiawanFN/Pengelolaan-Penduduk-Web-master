@@ -13,7 +13,7 @@
       $data_tanggal_masuk[] = $data['tanggal_masuk']; // Memasukan tanggal ke dalam array
       $data_total_tanggal_masuk[] = $data['total_tanggal_masuk']; // Memasukan total ke dalam array
     }
-     $data_penduduk2 = mysqli_query($db, "SELECT tanggal_masuk , COUNT(tanggal_masuk) AS total_tanggal_masuk FROM penduduk WHERE  jk = 'Laki-laki' and status= '1' or status = '2' GROUP BY tanggal_masuk");
+    $data_penduduk2 = mysqli_query($db, "SELECT tanggal_masuk , COUNT(tanggal_masuk) AS total_tanggal_masuk FROM penduduk WHERE  jk = 'Laki-laki' and status= '1' or status = '2' GROUP BY tanggal_masuk");
 
     $data_tanggal_masuk2 = array();
     $data_total_tanggal_masuk2 = array();
